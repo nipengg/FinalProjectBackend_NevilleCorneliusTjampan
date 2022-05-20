@@ -39,4 +39,6 @@ Route::prefix('/products')
     ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('admin');
         Route::get('/create', [DashboardController::class, 'create'])->name('product.create');
+        Route::post('/store', [DashboardController::class, 'store'])->name('product.store');
+        Route::get('/edit/{id}', [DashboardController::class, 'edit'])->name('product.edit');
     });

@@ -7,7 +7,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Add Product</h1>
+            <h1 class="h3 mb-0 text-gray-800">Edit Product</h1>
             <a href="{{ route('admin') }}" class="btn btn-sm btn-danger shadow-sm">
                 Back
             </a>
@@ -30,27 +30,27 @@
                     <div class="form-group">
                         <label for="name">Product Name</label>
                         <input type="text" class="form-control" name="name" placeholder="Name"
-                            value="{{ old('name') }}">
+                            value="{{ $product->name }}">
                     </div>
                     <div class="form-group">
                         <label for="price">Product Price</label>
                         <input type="number" class="form-control" name="price" placeholder="Price"
-                            value="{{ old('price') }}">
+                            value="{{ $product->price }}">
                     </div>
                     <div class="form-group">
                         <label for="shipping_cost">Product Shipping Cost</label>
                         <input type="number" class="form-control" name="shipping_cost" placeholder="Shipping Cost"
-                            value="{{ old('shipping_cost') }}">
+                            value="{{ $product->shipping_cost }}">
                     </div>
                     <div class="form-group">
                         <label for="quantity">Product Quantity</label>
                         <input type="number" class="form-control" name="quantity" placeholder="Quantity"
-                            value="{{ old('quantity') }}">
+                            value="{{ $product->quantity }}">
                     </div>
                     <div class="form-group">
                         <label for="category_id">Category</label>
                         <select name="category_id" required class="form-control">
-                            <option value="">Choose Category</option>
+                            <option value="{{ $product->category_id }}">Jangan diubah</option>
                             @foreach ($categories as $c)
                                 <option value="{{ $c->id }}">{{ $c->name }}</option>
                             @endforeach

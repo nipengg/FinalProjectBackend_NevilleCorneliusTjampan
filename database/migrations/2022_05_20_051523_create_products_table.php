@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->double('shipping_cost');
             $table->integer('quantity');
             $table->integer('category_id');
-            $table->string('image_path');
+            $table->string('image');
             $table->timestamps();
         });
     }

@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     <head>
         <script src="js/jquery.min.js" type="text/javascript"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.css" defer>
@@ -34,10 +33,10 @@
                         <td>{{ $product->name }}</td>
                         <td>Rp.{{ $product->price }}</td>
                         <td>{{ $product->category->name }}</td>
-                        <td><img src="/images/{{ $product->image_path }}" class="card-img-top mx-auto"
-                                style="width: 150px;display: block;" alt="{{ $product->image_path }}"></td>
+                        <td><img src="storage/{{ $product->image }}" class="card-img-top mx-auto"
+                                style="width: 150px;display: block;" alt="{{ $product->image }}"></td>
                         <td>
-                            <a href="" class="btn btn-info">
+                            <a href="{{ route('product.edit', $product->id) }}" class="btn btn-info">
                                 <i class="fa fa-pencil"></i>
                             </a>
                             <form action="" method="POST" class="d-inline">

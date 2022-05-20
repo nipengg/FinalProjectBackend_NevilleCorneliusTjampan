@@ -20,7 +20,7 @@ class ProductsTableSeeder extends Seeder
             'shipping_cost' => 29.99,
             'quantity' => 10,
             'category_id' => 1,
-            'image_path' => 'macbook-pro.png'
+            'image' => 'macbook-pro.png'
         ]);
 
         Product::create([
@@ -29,7 +29,7 @@ class ProductsTableSeeder extends Seeder
             'shipping_cost' => 19.99,
             'quantity' => 20,
             'category_id' => 1,
-            'image_path' => 'dell-v3557.png'
+            'image' => 'dell-v3557.png'
         ]);
     }
 }

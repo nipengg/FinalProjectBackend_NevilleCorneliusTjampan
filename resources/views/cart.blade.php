@@ -47,14 +47,14 @@
                 @foreach ($cartCollection as $item)
                     <div class="row">
                         <div class="col-lg-3">
-                            <img src="/images/{{ $item->attributes->image }}" class="img-thumbnail" width="200"
+                            <img src="storage/{{ $item->attributes->image }}" class="img-thumbnail" width="200"
                                 height="200">
                         </div>
                         <div class="col-lg-5">
                             <p>
-                                <b><a href="/shop/{{ $item->attributes->slug }}">{{ $item->name }}</a></b><br>
-                                <b>Price: </b>${{ $item->price }}<br>
-                                <b>Sub Total: </b>${{ \Cart::get($item->id)->getPriceSum() }}<br>
+                                <b><a href="/cart">{{ $item->name }}</a></b><br>
+                                <b>Price: </b>Rp.{{ $item->price }}<br>
+                                <b>Sub Total: </b>Rp.{{ \Cart::get($item->id)->getPriceSum() }}<br>
                                 {{-- <b>With Discount: </b>${{ \Cart::get($item->id)->getPriceSumWithConditions() }} --}}
                             </p>
                         </div>
