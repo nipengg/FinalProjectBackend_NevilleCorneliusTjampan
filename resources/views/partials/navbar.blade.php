@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            E-COMMERCE STORE
+            Pendataan Barang
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -11,11 +11,11 @@
             <ul class="navbar-nav ml-auto">
                 @if (Auth::user()->role == 1)
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin') }}">Products</a>
+                        <a class="nav-link" href="{{ route('admin') }}">Manage Product</a>
                     </li>
                 @endif
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('dashboard') }}">Shop</a>
+                    <a class="nav-link" href="{{ route('dashboard') }}">View Product</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"

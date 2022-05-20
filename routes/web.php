@@ -27,10 +27,10 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', [CartController::class, 'shop'])->name('dashboard');
     Route::get('/cart', [CartController::class, 'cart'])->name('cart.index');
-    Route::post('/add', 'CartController@add')->name('cart.store');
-    Route::post('/update', 'CartController@update')->name('cart.update');
-    Route::post('/remove', 'CartController@remove')->name('cart.remove');
-    Route::post('/clear', 'CartController@clear')->name('cart.clear');
+    Route::post('/add', [CartController::class, 'add'])->name('cart.store');
+    Route::post('/update', [CartController::class, 'update'])->name('cart.update');
+    Route::post('/remove', [CartController::class, 'remove'])->name('cart.remove');
+    Route::post('/clear', [CartController::class, 'clear'])->name('cart.clear');
 });
 
 Route::middleware(['auth', 'admin'])

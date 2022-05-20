@@ -5,14 +5,14 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                <li class="breadcrumb-item active" aria-current="page">Products</li>
             </ol>
         </nav>
         <div class="row justify-content-center">
             <div class="col-lg-12">
                 <div class="row">
                     <div class="col-lg-7">
-                        <h4>Products In Our Store</h4>
+                        <h4>All Products</h4>
                     </div>
                 </div>
                 <hr>
@@ -26,7 +26,7 @@
                                     <a href="">
                                         <h6 class="card-title">{{ $pro->name }}</h6>
                                     </a>
-                                    <p>${{ $pro->price }}</p>
+                                    <p>Rp.{{ $pro->price }}</p>
                                     <form action="{{ route('cart.store') }}" method="POST">
                                         {{ csrf_field() }}
                                         <input type="hidden" value="{{ $pro->id }}" id="id" name="id">
@@ -38,7 +38,7 @@
                                             <div class="row">
                                                 <button class="btn btn-secondary btn-sm" class="tooltip-test"
                                                     title="add to cart">
-                                                    <i class="fa fa-shopping-cart"></i> add to cart
+                                                    Tambah Faktur
                                                 </button>
                                             </div>
                                         </div>
