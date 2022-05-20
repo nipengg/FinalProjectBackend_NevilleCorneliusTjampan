@@ -20,7 +20,7 @@
                 @if (Auth::user()->role == 1)
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-jet-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
-                            {{ __('Admin') }}
+                            {{ __('Products') }}
                         </x-jet-nav-link>
                     </div>
                 @endif
