@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +34,9 @@ Route::middleware([
     Route::post('/clear', [CartController::class, 'clear'])->name('cart.clear');
 });
 
-Route::middleware(['auth', 'admin'])
+Route::prefix('/products')
+    ->middleware(['auth', 'admin'])
     ->group(function () {
-        Route::get('/products', [DashboardController::class, 'index'])->name('admin');
+        Route::get('/', [DashboardController::class, 'index'])->name('admin');
+        Route::get('/create', [DashboardController::class, 'create'])->name('product.create');
     });
