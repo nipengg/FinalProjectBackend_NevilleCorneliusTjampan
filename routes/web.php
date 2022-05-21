@@ -41,4 +41,6 @@ Route::prefix('/products')
         Route::get('/create', [DashboardController::class, 'create'])->name('product.create');
         Route::post('/store', [DashboardController::class, 'store'])->name('product.store');
         Route::get('/edit/{id}', [DashboardController::class, 'edit'])->name('product.edit');
+        Route::post('/update/{id}', [DashboardController::class, 'update'])->name('product.update');
+        Route::post('/delete/{id}', [DashboardController::class, 'destroy'])->name('product.destroy');
     });

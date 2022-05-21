@@ -47,4 +47,12 @@ class DashboardController extends Controller
 
         return redirect()->route('admin');
     }
+
+    public function destroy($id)
+    {
+        $data = Product::findOrFail($id);
+        $data->delete();
+
+        return redirect()->route('admin');
+    }
 }

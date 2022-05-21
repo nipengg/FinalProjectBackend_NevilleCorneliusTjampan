@@ -25,7 +25,7 @@
 
         <div class="card shadow">
             <div class="card-body">
-                <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('product.update', $product->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="name">Product Name</label>
