@@ -52,9 +52,9 @@
                         </div>
                         <div class="col-lg-5">
                             <p>
-                                <b><a href="/cart">{{ $item->name }}</a></b><br>
-                                <b>Price: </b>Rp.{{ $item->price }}<br>
-                                <b>Sub Total: </b>Rp.{{ \Cart::get($item->id)->getPriceSum() }}<br>
+                                <b><a href="/cart">@currency($item->price)</a></b><br>
+                                <b>Price: </b>@currency($item->price)<br>
+                                <b>Sub Total: </b>@currency(\Cart::get($item->id)->getPriceSum())<br>
                                 {{-- <b>With Discount: </b>${{ \Cart::get($item->id)->getPriceSumWithConditions() }} --}}
                             </p>
                         </div>
@@ -93,7 +93,7 @@
                 <div class="col-lg-5">
                     <div class="card">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><b>Total: </b>Rp.{{ \Cart::getTotal() }}</li>
+                            <li class="list-group-item"><b>Total: </b>@currency(\Cart::getTotal())</li>
                         </ul>
                     </div>
                     <br><a href="/dashboard" class="btn btn-dark">Kembali</a>

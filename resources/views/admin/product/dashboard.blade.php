@@ -31,7 +31,7 @@
                     <tr>
                         <th scope="row">{{ $product->id }}</th>
                         <td>{{ $product->name }}</td>
-                        <td>Rp.{{ $product->price }}</td>
+                        <td>@currency($product->price)</td>
                         <td>{{ $product->category->name }}</td>
                         <td><img src="storage/{{ $product->image }}" class="card-img-top mx-auto"
                                 style="width: 150px;display: block;" alt="{{ $product->image }}"></td>
