@@ -13,6 +13,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin') }}">Manage Product</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('category') }}">Manage Category</a>
+                    </li>
                 @endif
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('dashboard') }}">View Product</a>

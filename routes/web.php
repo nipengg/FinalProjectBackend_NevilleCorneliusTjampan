@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -43,4 +44,15 @@ Route::prefix('/products')
         Route::get('/edit/{id}', [DashboardController::class, 'edit'])->name('product.edit');
         Route::post('/update/{id}', [DashboardController::class, 'update'])->name('product.update');
         Route::post('/delete/{id}', [DashboardController::class, 'destroy'])->name('product.destroy');
+    });
+
+Route::prefix('/category')
+    ->middleware(['auth', 'admin'])
+    ->group(function () {
+        Route::get('/', [CategoryController::class, 'index'])->name('category');
+        Route::get('/create', [CategoryController::class, 'create'])->name('category.create');
+        Route::post('/store', [CategoryController::class, 'store'])->name('category.store');
+        Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
+        Route::post('/update/{id}', [CategoryController::class, 'update'])->name('category.update');
+        Route::post('/delete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
     });

@@ -9,9 +9,9 @@
 
     <div class="container table-responsive" style="margin-top: 80px">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Manage Product</h1>
-            <a href="{{ route('product.create') }}" class="btn btn-sm btn-primary shadow-sm">
-                <i class="fa fa-plus"></i> Add Product
+            <h1 class="h3 mb-0 text-gray-800">Manage Category</h1>
+            <a href="{{ route('category.create') }}" class="btn btn-sm btn-primary shadow-sm">
+                <i class="fa fa-plus"></i> Add Category
             </a>
         </div>
 
@@ -20,26 +20,19 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Qty</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Image</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($products as $product)
+                @foreach ($categories as $category)
                     <tr>
-                        <th scope="row">{{ $product->id }}</th>
-                        <td>{{ $product->name }}</td>
-                        <td>Rp.{{ $product->price }}</td>
-                        <td>{{ $product->category->name }}</td>
-                        <td><img src="storage/{{ $product->image }}" class="card-img-top mx-auto"
-                                style="width: 150px;display: block;" alt="{{ $product->image }}"></td>
+                        <th scope="row">{{ $category->id }}</th>
+                        <td>{{ $category->name }}</td>
                         <td>
-                            <a href="{{ route('product.edit', $product->id) }}" class="btn btn-info">
+                            <a href="{{ route('category.edit', $category->id) }}" class="btn btn-info">
                                 <i class="fa fa-pencil"></i>
                             </a>
-                            <form action="{{ route('product.destroy', $product->id)}}" method="POST" class="d-inline">
+                            <form action="{{ route('category.destroy', $category->id) }}" method="POST" class="d-inline">
                                 @csrf
                                 <button class="btn btn-danger">
                                     <i class="fa fa-trash"></i>
