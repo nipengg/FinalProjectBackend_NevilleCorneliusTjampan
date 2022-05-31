@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -35,12 +36,14 @@ class CartController extends Controller
         return redirect()->route('cart.index')->with('success_msg', 'Item is Added to Cart!');
     }
 
-    public function remove(Request $request){
+    public function remove(Request $request)
+    {
         \Cart::remove($request->id);
         return redirect()->route('cart.index')->with('success_msg', 'Item is removed!');
     }
 
-    public function update(Request $request){
+    public function update(Request $request)
+    {
         \Cart::update($request->id,
             array(
                 'quantity' => array(
@@ -51,8 +54,19 @@ class CartController extends Controller
         return redirect()->route('cart.index')->with('success_msg', 'Cart is Updated!');
     }
 
-    public function clear(){
+    public function clear()
+    {
         \Cart::clear();
         return redirect()->route('cart.index')->with('success_msg', 'Car is cleared!');
+    }
+
+    public function print()
+    {
+        $cartCollection = \Cart::getContent();
+
+        foreach ($cartCollection as $item)
+        {
+            dd($item);
+        }
     }
 }

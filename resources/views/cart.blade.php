@@ -97,7 +97,7 @@
                         </ul>
                     </div>
                     <br><a href="/dashboard" class="btn btn-dark">Kembali</a>
-                    <a href="/checkout" class="btn btn-success">Cetak Faktur</a>
+                    <a href="/print" class="btn btn-success">Cetak Faktur</a>
                 </div>
             @endif
         </div>

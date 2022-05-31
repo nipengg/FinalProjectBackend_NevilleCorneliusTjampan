@@ -21,7 +21,7 @@
                         <div class="col-lg-3">
                             <div class="card" style="margin-bottom: 20px; height: auto;">
                                 <img src="storage/{{ $pro->image }}" class="card-img-top mx-auto"
-                                    style="height: 150px; width: 150px;display: block;" alt="{{ $pro->image }}">
+                                    style="margin-top: 20px; width: 150px; display: block;" alt="{{ $pro->image }}">
                                 <div class="card-body">
                                     <a href="">
                                         <h6 class="card-title">{{ $pro->name }}</h6>
@@ -38,7 +38,7 @@
                                             <div class="row">
                                                 <button class="btn btn-secondary btn-sm" class="tooltip-test"
                                                     title="add to cart">
-                                                    Tambah Faktur
+                                                    Tambah ke Faktur
                                                 </button>
                                             </div>
                                         </div>
