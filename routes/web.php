@@ -3,9 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\HomeController;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +32,8 @@ Route::middleware([
     Route::post('/update', [CartController::class, 'update'])->name('cart.update');
     Route::post('/remove', [CartController::class, 'remove'])->name('cart.remove');
     Route::post('/clear', [CartController::class, 'clear'])->name('cart.clear');
-    Route::get('/print', [CartController::class, 'print'])->name('cart.print');
+    Route::get('/store', [CartController::class, 'store'])->name('cart.checkout');
+    Route::get('/pdf/{in}', [InvoiceController::class, 'genPDF']);
 });
 
 Route::prefix('/products')

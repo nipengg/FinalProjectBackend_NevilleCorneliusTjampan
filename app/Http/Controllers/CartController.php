@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\InvoiceController;
 
 
 class CartController extends Controller
@@ -62,17 +63,18 @@ class CartController extends Controller
     public function clear()
     {
         \Cart::clear();
-        return redirect()->route('cart.index')->with('success_msg', 'Car is cleared!');
+        return redirect()->route('cart.index')->with('success_msg', 'Cart is cleared!');
     }
 
-    public function print()
+    public function store()
     {
         $cartCollection = \Cart::getContent();
         $date = Carbon::now()->toDateTimeString();
         $userId = Auth::user()->id;
         $in = uniqid();
 
-        foreach ($cartCollection as $item) {
+        foreach ($cartCollection as $item)
+        {
             DB::insert("
                     INSERT INTO invoices
                     (invoice_id, product_id, qty, total, user_id, created_at, updated_at)
@@ -85,8 +87,9 @@ class CartController extends Controller
                 WHERE id = ?
             ", [$item['quantity'], $item['id']]);
         }
+
         \Cart::clear();
         DB::commit();
-        return redirect()->route('dashboard')->with('success_msg', 'Success!');
+        return redirect()->action([InvoiceController::class, 'genPDF'], ['in' => $in]);
     }
 }

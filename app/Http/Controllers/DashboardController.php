@@ -40,7 +40,8 @@ class DashboardController extends Controller
     public function update($id, Request $request)
     {
         $data = $request->all();
-        $data['image'] = $request->file('image')->store('/images', 'public');
+
+        // $data['image'] = $request->file('image')->store('/images', 'public');
 
         $item = Product::findOrFail($id);
         $item->update($data);
