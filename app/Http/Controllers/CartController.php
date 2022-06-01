@@ -14,8 +14,7 @@ class CartController extends Controller
 {
     public function shop()
     {
-        $products = Product::all();
-        // dd($products);
+        $products = Product::where('quantity', '>', 0)->get();
         return view('shop')->with(['products' => $products]);
     }
 
