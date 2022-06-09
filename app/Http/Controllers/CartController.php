@@ -27,16 +27,31 @@ class CartController extends Controller
 
     public function add(Request $request)
     {
-        \Cart::add(array(
-            'id' => $request->id,
-            'name' => $request->name,
-            'price' => $request->price,
-            'quantity' => $request->quantity,
-            'attributes' => array(
-                'image' => $request->img,
-            )
-        ));
-        return redirect()->route('cart.index')->with('success_msg', 'Item is Added to Cart!');
+        $product = Product::findOrFail($request->id);
+        $cartCollection = \Cart::getContent($request->id);
+
+        foreach ($cartCollection as $c) {
+            if ($c['id'] == $request->id) {
+                $stock = $c['quantity'];
+            }
+        }
+
+        $max_stock = $request->quantity + $stock;
+
+        if ($product['quantity'] < $max_stock) {
+            return redirect()->route('cart.index')->with('alert_msg', 'Stock not Ready');
+        } else {
+            \Cart::add(array(
+                'id' => $request->id,
+                'name' => $request->name,
+                'price' => $request->price,
+                'quantity' => $request->quantity,
+                'attributes' => array(
+                    'image' => $request->img,
+                )
+            ));
+            return redirect()->route('cart.index')->with('success_msg', 'Item is Added to Cart!');
+        }
     }
 
     public function remove(Request $request)
@@ -47,16 +62,22 @@ class CartController extends Controller
 
     public function update(Request $request)
     {
-        \Cart::update(
-            $request->id,
-            array(
-                'quantity' => array(
-                    'relative' => false,
-                    'value' => $request->quantity
-                ),
-            )
-        );
-        return redirect()->route('cart.index')->with('success_msg', 'Cart is Updated!');
+        $product = Product::findOrFail($request->id);
+
+        if ($product['quantity'] < $request->quantity) {
+            return redirect()->route('cart.index')->with('alert_msg', 'Stock not Ready');
+        } else {
+            \Cart::update(
+                $request->id,
+                array(
+                    'quantity' => array(
+                        'relative' => false,
+                        'value' => $request->quantity
+                    ),
+                )
+            );
+            return redirect()->route('cart.index')->with('success_msg', 'Cart is Updated!');
+        }
     }
 
     public function clear()
@@ -72,8 +93,7 @@ class CartController extends Controller
         $userId = Auth::user()->id;
         $in = uniqid();
 
-        foreach ($cartCollection as $item)
-        {
+        foreach ($cartCollection as $item) {
             DB::insert("
                     INSERT INTO invoices
                     (invoice_id, product_id, qty, total, user_id, created_at, updated_at)

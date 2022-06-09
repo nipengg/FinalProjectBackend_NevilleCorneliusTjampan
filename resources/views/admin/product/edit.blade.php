@@ -56,10 +56,6 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="image">Image</label>
-                        <input type="file" class="form-control" name="image" placeholder="Image">
-                    </div>
                     <button class="btn btn-primary btn-block" type="submit">
                         Simpan
                     </button>
