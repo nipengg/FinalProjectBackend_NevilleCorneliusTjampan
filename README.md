@@ -4,6 +4,37 @@ BNCC Final Project Backend Development 2022
 
 <hr>
 
+## Daftar Isi
+1. [Fitur](#fitur)
+2. [Instalasi](#instalasi)
+    - [Spesifikasi yang Dibutuhkan](#spesifikasi)
+    - [Cara Install](#cara-install)
+3. [Screenshots](#screenshots)
+
+<hr>
+
+## Fitur
+
+Fitur pada Aplikasi ini meliputi:
+
+1. Akun Login
+    - Register Akun
+    - Login dan Logout User
+2. Admin
+    - Add Product
+    - Delete Product
+    - Update Product
+    - Add Category
+    - Delete Category
+    - Update Category
+    - Tambah barang faktur
+    - Cetak Faktur
+3. User
+    - Tambah barang faktur
+    - Cetak Faktur
+
+<hr>
+
 ## Instalasi
 
 ### Spesifikasi
@@ -28,3 +59,5 @@ BNCC Final Project Backend Development 2022
 8. `php artisan migrate --seed`
 9. `php artisan serve`
 10. Selesai
+
+## Screenshots

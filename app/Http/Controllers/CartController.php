@@ -30,6 +30,8 @@ class CartController extends Controller
         $product = Product::findOrFail($request->id);
         $cartCollection = \Cart::getContent($request->id);
 
+        $stock = 0;
+
         foreach ($cartCollection as $c) {
             if ($c['id'] == $request->id) {
                 $stock = $c['quantity'];
