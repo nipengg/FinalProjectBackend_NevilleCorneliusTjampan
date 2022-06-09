@@ -1,4 +1,4 @@
-![Mid Project Backend Development 2022](public/logo_binus_resize.png "Final Project Backend Development 2022")
+![Final Project Backend Development 2022](public/logo_binus_resize.png "Final Project Backend Development 2022")
 
 BNCC Final Project Backend Development 2022
 
