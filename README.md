@@ -33,6 +33,8 @@ Fitur pada Aplikasi ini meliputi:
     - Tambah barang faktur
     - Cetak Faktur
 
+User tidak bisa mengakses halaman admin page dengan memakai sistem Middleware
+
 <hr>
 
 ## Instalasi
