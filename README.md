@@ -61,3 +61,27 @@ Fitur pada Aplikasi ini meliputi:
 10. Selesai
 
 ## Screenshots
+
+#### Home Page
+![Home page](public/images/homepage.png "Home page")
+
+#### Manage Product Admin Page
+![Product Admin Page](public/images/product_admin.png "Product Admin Page")
+
+#### Add Product Admin Page
+![Add Product Admin Page](public/images/add_product.png "Add Product Admin Page")
+
+#### Edit Product Admin Page
+![Edit Product Admin Page](public/images/edit_product.png "Edit Product Admin Page")
+
+#### Category Product Admin Page
+![Category Product Admin Page](public/images/category_admin.png "Category Product Admin Page")
+
+#### Cart Page
+![Cart Page](public/images/cart.png "Cart Page")
+
+#### Cart Validation Page (Barang tidak akan terupdate jika stock tidak cukup)
+![Cart Validatioon Page](public/images/cart_validation.png "Cart Validation Page")
+
+#### Faktur dalam format PDF
+![Faktur Page](public/images/faktur.png "Faktur Page")
